@@ -1,0 +1,46 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: transparent;
+  color: #ffffff;
+  font-family: sans-serif;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #a35353;
+}
+.header-links {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+}
+.header-links li a {
+  text-decoration: none;
+  color: #a0a0a0;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+.header-links li.active a,
+.header-links li a:hover {
+  color: #ffffff;
+}
+.contact-btn {
+  background-color: #fa8305;
+  color: #ffffff;
+  border: none;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.contact-btn:hover {
+  background-color: #e07304;
+}

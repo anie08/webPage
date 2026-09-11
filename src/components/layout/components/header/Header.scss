@@ -1,12 +1,14 @@
 .header{
+  background-color: #000;
+}
+
+.headerContainer{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background-color: transparent;
-  color: #ffffff;
-  font-family: sans-serif;
+  padding: 20px 0;
 }
+
 .logo {
   font-size: 24px;
   font-weight: bold;

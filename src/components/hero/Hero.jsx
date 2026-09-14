@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section className="hero">
       <div className="hero-container container">
-        <div className="hero-content ">
+        <div className="hero-content  ">
           <span className="subtitle">3D game Dev </span>
           <h1>Work that we produce for our clients</h1>
           <p className="hero-content_p">

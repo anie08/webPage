@@ -1,20 +1,30 @@
-.header{
+.header {
   background-color: #000;
+  border-bottom: 1px solid #1a1a1a;
+  padding: 20px 0;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
-.headerContainer{
+.headerContainer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
 }
 
 .logo {
+  color: #fff;
   font-size: 24px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: #a35353;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
+
+.navigations {
+  display: flex;
+  gap: 40px;
+}
+
 .header-links {
   display: flex;
   list-style: none;
@@ -25,24 +35,34 @@
 .header-links li a {
   text-decoration: none;
   color: #a0a0a0;
+  display: inline-block;
+  padding: 10px 12px;
+  align-items: center;
   font-size: 15px;
   transition: color 0.3s ease;
+
+  &:hover {
+    color: #fff;
+  }
+
+  &.active {
+    color: #fff;
+    border-bottom: 2px solid #f58220;
+  }
 }
-.header-links li.active a,
-.header-links li a:hover {
-  color: #ffffff;
-}
+
 .contact-btn {
-  background-color: #fa8305;
-  color: #ffffff;
+  background-color: #f58220;
+  color: #fff;
   border: none;
   padding: 10px 22px;
-  font-size: 14px;
-  font-weight: 600;
   border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-.contact-btn:hover {
-  background-color: #e07304;
+
+  &:hover {
+    background-color: #d96e10;
+  }
 }

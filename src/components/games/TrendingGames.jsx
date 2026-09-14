@@ -18,12 +18,12 @@ const TrendingGames = () => {
   return (
     <section className="trending ">
       <div className="trending-cont container">
-        <div className="trending-header">
-          <button className="see-all-btn">SEE ALL</button>
+        <div className="trending-header ">
           <h2 className="trending-header_h2">Currently Trending Games</h2>
+          <button className="see-all-btn">SEE ALL</button>
         </div>
 
-        <div className="games-grid">
+        <div className="games-grid container">
           {games.map((elm) => (
             <div className="game-card" key={elm.id}>
               <div className="card-img-box">
@@ -38,11 +38,11 @@ const TrendingGames = () => {
             </div>
           ))}
         </div>
-        <div className="big-text container">
+        <div className="big-text ">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry.
         </div>
-        <div className="banner container">
+        <div className="banner ">
           <h3>Lorem ipsum</h3>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting

@@ -23,7 +23,7 @@ const TrendingGames = () => {
           <button className="see-all-btn">SEE ALL</button>
         </div>
 
-        <div className="games-grid container">
+        <div className="games-grid ">
           {games.map((elm) => (
             <div className="game-card" key={elm.id}>
               <div className="card-img-box">

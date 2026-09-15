@@ -28,9 +28,10 @@
 
 .portfolio-hero__title {
   font-size: 42px;
-  font-weight: 33;
+  font-weight: 700;
   margin: 0 auto 16px;
   line-height: 1.2;
+  max-width: 800px;
 }
 
 .portfolio-hero__subtitle {
@@ -48,7 +49,7 @@
   border: 1px solid #222;
   border-radius: 16px;
   padding: 35px 20px;
-width: 100%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -61,7 +62,8 @@ width: 100%;
 .stat-icon {
   font-size: 24px;
   background: #FFFFFF;
-  background: linear-gradient(340deg, rgba(255, 255, 255, 1) 0%, rgba(196, 196, 196, 1) 100%);  color: #f58220;
+  background: linear-gradient(340deg, rgba(255, 255, 255, 1) 0%, rgba(196, 196, 196, 1) 100%);
+  color: #f58220;
   width: 55px;
   height: 55px;
   border-radius: 50%;
@@ -74,6 +76,7 @@ width: 100%;
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 4px;
+  color: #fff;
 }
 
 .stat-info p {
@@ -87,16 +90,23 @@ width: 100%;
   background-color: #222;
 }
 
-.video-features {
+.video-features,
+.feature-block {
   display: flex;
   align-items: center;
-  gap: 60px;
+  justify-content: center;
+  gap: 138px;
   margin-bottom: 100px;
+  width: 100%;
+}
+
+.video-features:nth-child(even),
+.feature-block:nth-child(even) {
+  flex-direction: row-reverse;
 }
 
 .video-card {
-  flex: 1.2;
-
+  width: 530px;
 }
 
 .video-preview {
@@ -109,10 +119,14 @@ width: 100%;
   align-items: center;
   justify-content: center;
   position: relative;
-  background-image: url('../../assets/img/recentProjects/Rectangle 16.png');
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
+}
 
+.video-preview .media-img {
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .play-button {
@@ -122,22 +136,39 @@ width: 100%;
   background-color: #f58220;
   color: #fff;
   border: none;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 18px;
+  top: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
+  position: absolute;
   justify-content: center;
+  z-index: 1;
 }
 
-.features-content {
-  flex: 1;
+.features-content,
+.feature-block__text {
+  max-width: 530px;
 }
 
-.features-content h2 {
+.features-content h2,
+.feature-block__text h2,
+.feature-block__text h3 {
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 16px;
   line-height: 1.3;
+  color: #fff;
+}
+
+.features-content p,
+.feature-block__text p {
+  color: #9a9a9a;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
 
 .features-desc {
@@ -169,33 +200,6 @@ width: 100%;
   font-weight: bold;
 }
 
-.feature-block {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  margin-bottom: 80px;
-}
-
-
-
-.feature-block__text {
-  flex: 1;
-}
-
-.feature-block__text h3 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  line-height: 1.3;
-}
-
-.feature-block__text p {
-  color: #9a9a9a;
-  font-size: 13px;
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
 .read-more-btn {
   background-color: #f58220;
   color: #fff;
@@ -208,32 +212,25 @@ width: 100%;
   margin-top: 10px;
 }
 
-
+.feature-block__image {
+  flex: 0 0 496px;
+  width: 496px;
+}
 
 .image-placeholder {
-  width: 496px;
+  width: 100%;
   height: 489px;
   border-radius: 12px;
   background-color: #121212;
   border: 1px solid #222;
-  background-size: cover;
-  background-position: center;
+  object-fit: cover;
 }
 
-.cyberpunk-1 {
-  background-image: url('../../assets/img/Rectangle 24.png');
-  background-size: cover;
-  background-position: center;}
-
-.cyberpunk-2 {
-  background-image: url('../../assets/img/recentProjects/Rectangle 16.png');
-  background-size: cover;
-  background-position: center;}
-
+.cyberpunk-1,
+.cyberpunk-2,
 .sci-fi-soldier {
-  background-image: url('../../assets/img/recentProjects/Rectangle 16.png');
-  background-size: cover;
-  background-position: center;}
+  object-fit: cover;
+}
 
 .testimonials {
   margin-top: 100px;
@@ -244,6 +241,7 @@ width: 100%;
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 12px;
+  color: #fff;
 }
 
 .testimonials-header p {
@@ -282,9 +280,7 @@ width: 100%;
   object-fit: cover;
 }
 
-.user-meta {
-  flex: 1;
-}
+
 
 .user-meta h4 {
   font-size: 15px;
@@ -361,9 +357,17 @@ width: 100%;
 @media (max-width: 900px) {
   .video-features,
   .feature-block,
-  .feature-block.reverse,
-  .testimonials-grid {
-    flex-direction: column;
+  .feature-block.reverse-layout {
+    flex-direction: column ;
+  }
+
+  .video-card,
+  .feature-block__image,
+  .features-content,
+  .feature-block__text {
+    width: 100%;
+    flex: unset;
+    max-width: 100%;
   }
 
   .stats-box {
@@ -373,5 +377,14 @@ width: 100%;
 
   .stat-divider {
     display: none;
+  }
+
+  .testimonials-grid {
+    flex-direction: column;
+  }
+
+  .testimonials-footer {
+    flex-direction: column;
+    gap: 20px;
   }
 }

@@ -9,11 +9,84 @@ import {
   FaArrowRight,
   FaStar,
 } from "react-icons/fa";
-import "./portfolio.scss";
+import { nanoid } from "nanoid";
+import "./Portfolio.scss";
+
+import cyberpunk1Img from "../../assets/img/Rectangle 24.png";
+import cyberpunk2Img from "../../assets/img/recentProjects/Rectangle 16.png";
+import videoPreviewImg from "../../assets/img/recentProjects/Rectangle 16.png";
+
+const contentBlocks = [
+  {
+    id: nanoid(),
+    type: "video",
+    title: "Lorem Ipsum is simply dummy text.",
+    image: videoPreviewImg,
+    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text over since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    list: [
+      "Lorem Ipsum is simply",
+      "Lorem Ipsum is simply",
+      "Lorem Ipsum is simply",
+      "Lorem Ipsum is simply",
+    ],
+    readMore: true,
+  },
+  {
+    id: nanoid(),
+    type: "image",
+    title: "Lorem Ipsum is simply dummy text dummy text",
+    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text over since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    image: cyberpunk1Img,
+    readMore: true,
+  },
+  {
+    id: nanoid(),
+    type: "image",
+    title: "Lorem Ipsum is simply dummy text dummy text",
+    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text over since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    image: cyberpunk2Img,
+  },
+  {
+    id: nanoid(),
+    type: "image",
+    title: "Lorem Ipsum is simply dummy text dummy text",
+    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text over since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    image: cyberpunk1Img,
+  },
+];
+
+const testimonialsData = [
+  {
+    id: nanoid(),
+    name: "Viezh Robert",
+    location: "Warsaw, Poland",
+    rating: "4.5",
+    avatar: "https://via.placeholder.com/50",
+    review:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text over since the 1500s,",
+  },
+  {
+    id: nanoid(),
+    name: "Yessica Christy",
+    location: "Shanxi, China",
+    rating: "4.5",
+    avatar: "https://via.placeholder.com/50",
+    review: "Lorem Ipsum is simply dummy text of the printing and.",
+  },
+  {
+    id: nanoid(),
+    name: "Kim Young Jou",
+    location: "Seoul, South Korea",
+    rating: "4.5",
+    avatar: "https://via.placeholder.com/50",
+    review:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+  },
+];
 
 const Portfolio = () => {
   return (
-    <div className="portfolio-page">
+    <div className="portfolio-page ">
       <div className="container">
         <div className="breadcrumb">
           Home <span>&gt;</span> Portfolio
@@ -38,7 +111,9 @@ const Portfolio = () => {
                 <p>Clients</p>
               </div>
             </div>
+
             <div className="stat-divider"></div>
+
             <div className="stat-item">
               <span className="stat-icon">
                 <FaMapMarkerAlt />
@@ -48,7 +123,9 @@ const Portfolio = () => {
                 <p>Countries</p>
               </div>
             </div>
+
             <div className="stat-divider"></div>
+
             <div className="stat-item">
               <span className="stat-icon">
                 <FaFolder />
@@ -61,113 +138,56 @@ const Portfolio = () => {
           </div>
         </section>
 
-        <section className="video-features">
-          <div className="video-card container">
-            <div className="video-preview">
-              <button className="play-button">
-                <FaPlay />
-              </button>
-            </div>
-          </div>
-          <div className="features-content">
-            <h2>Lorem Ipsum is simply dummy text.</h2>
-            <p className="features-desc">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem ipsum is simply dummy.
-            </p>
-            <ul className="check-list">
-              <li>
-                <span className="check-icon">
-                  <FaCheck />
-                </span>{" "}
-                Lorem Ipsum is simply
-              </li>
-              <li>
-                <span className="check-icon">
-                  <FaCheck />
-                </span>{" "}
-                Lorem Ipsum is simply
-              </li>
-              <li>
-                <span className="check-icon">
-                  <FaCheck />
-                </span>{" "}
-                Lorem Ipsum is simply
-              </li>
-              <li>
-                <span className="check-icon">
-                  <FaCheck />
-                </span>{" "}
-                Lorem Ipsum is simply
-              </li>
-            </ul>
-          </div>
-        </section>
+        {contentBlocks.map((block) => {
+          const isVideo = block.type === "video";
+          const { image, id, title, desc } = block;
 
-        <section className="feature-block">
-          <div className="feature-block__text container">
-            <h3>Lorem Ipsum is simply dummy text dummy text</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry&apos;s standard dummy
-              text over since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book. It has
-              survived not only five centuries,
-            </p>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
-            </p>
-            <button className="read-more-btn">Read more</button>
-          </div>
-          <div className="feature-block__image">
-            <div className="image-placeholder cyberpunk-1"></div>
-          </div>
-        </section>
+          return (
+            <section key={id} className="feature-block">
+              <div className={isVideo ? "video-card" : "feature-block__image"}>
+                {isVideo ? (
+                  <div className="video-preview">
+                    <img
+                      src={image}
+                      alt="Video preview"
+                      className="media-img"
+                    />
+                    <button className="play-button">
+                      <FaPlay />
+                    </button>
+                  </div>
+                ) : (
+                  <img
+                    src={image}
+                    alt="Feature"
+                    className="image-placeholder"
+                  />
+                )}
+              </div>
+              <div className="feature-block__text">
+                <h2>{title}</h2>
+                {desc && <p className="feature-block__desc">{desc}</p>}
+                {!!block.list?.length && (
+                  <ul className="check-list">
+                    {block.list.map((item, index) => (
+                      <li key={index}>
+                        <span className="check-icon">
+                          <FaCheck />
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {block.readMore && (
+                  <button className="read-more-btn">Read more</button>
+                )}
+              </div>
+            </section>
+          );
+        })}
 
-        <section className="feature-block container ">
-          <div className="feature-block__image  ">
-            <div className="image-placeholder cyberpunk-2 "></div>
-          </div>
-          <div className="feature-block__text">
-            <h3>Lorem Ipsum is simply dummy text dummy text</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry&apos;s standard dummy
-              text over since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book. It has
-              survived not only five centuries,
-            </p>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
-            </p>
-            <button className="read-more-btn">Read more</button>
-          </div>
-        </section>
-
-        <section className="feature-block">
-          <div className="feature-block__text container">
-            <h3>Lorem Ipsum is simply dummy text dummy text</h3>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry&apos;s standard dummy
-              text over since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book. It has
-              survived not only five centuries,
-            </p>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
-            </p>
-            <button className="read-more-btn">Read more</button>
-          </div>
-          <div className="feature-block__image">
-            <div className="image-placeholder sci-fi-soldier"></div>
-          </div>
-        </section>
-
-        <section className="testimonials container">
+        <section className="testimonials">
           <div className="testimonials-header">
             <h2>Trusted by Thousands of Happy Customer</h2>
             <p>
@@ -177,68 +197,25 @@ const Portfolio = () => {
           </div>
 
           <div className="testimonials-grid">
-            <div className="testimonial-card  ">
-              <div className="user-top">
-                <img
-                  src="https://via.placeholder.com/50"
-                  alt="Viezh Robert"
-                  className="user-avatar"
-                />
-                <div className="user-meta">
-                  <h4>Viezh Robert</h4>
-                  <p>Warsaw, Poland</p>
+            {testimonialsData.map((testimonial) => (
+              <div className="testimonial-card" key={testimonial.id}>
+                <div className="user-top">
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="user-avatar"
+                  />
+                  <div className="user-meta">
+                    <h4>{testimonial.name}</h4>
+                    <p>{testimonial.location}</p>
+                  </div>
+                  <div className="rating">
+                    {testimonial.rating} <FaStar />
+                  </div>
                 </div>
-                <div className="rating">
-                  4.5 <FaStar />
-                </div>
+                <p className="user-review">{testimonial.review}</p>
               </div>
-              <p className="user-review">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem ipsum has been the industry&apos;s standard
-                dummy text over since the 1500s,
-              </p>
-            </div>
-
-            <div className="testimonial-card">
-              <div className="user-top">
-                <img
-                  src="https://via.placeholder.com/50"
-                  alt="Yessica Christy"
-                  className="user-avatar"
-                />
-                <div className="user-meta">
-                  <h4>Yessica Christy</h4>
-                  <p>Shanxi, China</p>
-                </div>
-                <div className="rating">
-                  4.5 <FaStar />
-                </div>
-              </div>
-              <p className="user-review">
-                Lorem Ipsum is simply dummy text of the printing and.
-              </p>
-            </div>
-
-            <div className="testimonial-card">
-              <div className="user-top">
-                <img
-                  src="https://via.placeholder.com/50"
-                  alt="Kim Young Jou"
-                  className="user-avatar"
-                />
-                <div className="user-meta">
-                  <h4>Kim Young Jou</h4>
-                  <p>Seoul, South Korea</p>
-                </div>
-                <div className="rating">
-                  4.5 <FaStar />
-                </div>
-              </div>
-              <p className="user-review">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
-              </p>
-            </div>
+            ))}
           </div>
 
           <div className="testimonials-footer">

@@ -47,7 +47,7 @@ const servicesData = [
 const About = () => {
   return (
     <section className="about">
-      <div className="about_container container">
+      <div className="about_container ">
         <h3 className="about_title">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry.

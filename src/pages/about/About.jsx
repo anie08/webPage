@@ -41,7 +41,6 @@ const About = () => {
 
   return (
     <div className="about-page">
-      {/* 1. Intro Section */}
       <section className="about-intro container">
         <div className="about-intro__content">
           <p className="routing">Home {">"} About us</p>

@@ -18,10 +18,24 @@
   width: 100%;
 }
 
-.about-intro__content .routing {
-  color: #888;
+.breadcrumb {
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 14px;
-  margin-bottom: 24px;
+}
+.breadcrumb-link {
+  text-decoration: none;
+  color: #a0a0a0;
+  display: inline-block;
+  padding: 10px 12px;
+  align-items: center;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+.breadcrumb .active {
+  color: orange;
 }
 
 .about-intro__title {

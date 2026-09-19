@@ -15,6 +15,7 @@ import "./Portfolio.scss";
 import cyberpunk1Img from "../../assets/img/Rectangle 24.png";
 import cyberpunk2Img from "../../assets/img/recentProjects/Rectangle 16.png";
 import videoPreviewImg from "../../assets/img/recentProjects/Rectangle 16.png";
+import { Link } from "react-router-dom";
 
 const contentBlocks = [
   {
@@ -89,7 +90,11 @@ const Portfolio = () => {
     <div className="portfolio-page ">
       <div className="container">
         <div className="breadcrumb">
-          Home <span>&gt;</span> Portfolio
+          <Link to="/" className="breadcrumb-link">
+            Home
+          </Link>
+          {" > "}
+          <span className="current">Portfolio</span>
         </div>
 
         <section className="portfolio-hero">

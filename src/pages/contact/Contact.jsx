@@ -1,5 +1,6 @@
 import React from "react";
 import "./Contact.scss";
+import { Link } from "react-router-dom";
 import {
   FaPhoneAlt,
   FaMapMarkerAlt,
@@ -11,9 +12,14 @@ import {
 
 const Contact = () => {
   return (
-    <div className="contact-page">
-      {/* Intro Section */}
-      <section className="contact-intro container">
+    <div className="contact-breadcrumb container">
+      <Link to="/" className="breadcrumb-link">
+        Home
+      </Link>
+      {" > "}
+      <span className="current">Contact us</span>
+
+      <section className="contact-intro ">
         <h1 className="contact-intro__title">
           Lorem Ipsum is simply dummy text of the printing and.
         </h1>
@@ -22,10 +28,8 @@ const Contact = () => {
           industry.
         </p>
 
-        {/* World Map & Info Bar */}
         <div className="world-map-box">
           <div className="map-placeholder">
-            {/* Այստեղ կարող ես դնել քարտեզի նկարը */}
             <div className="map-dot dot-1"></div>
             <div className="map-dot dot-2"></div>
             <div className="map-dot dot-3"></div>
@@ -60,8 +64,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Say Hello Form Section */}
-      <section className="say-hello container">
+      <section className="say-hello ">
         <div className="say-hello__header">
           <h2>Say hello</h2>
           <p>Lorem Ipsum is simply dummy text of the printing.</p>
@@ -82,32 +85,6 @@ const Contact = () => {
             Get in touch
           </button>
         </form>
-      </section>
-
-      {/* Lorem Ipsum Block */}
-      <section className="lorem-block container">
-        <h3>Lorem Ipsum</h3>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.
-        </p>
-      </section>
-
-      {/* Stay in the Loop Section */}
-      <section className="stay-loop container">
-        <div className="stay-loop__box">
-          <div className="stay-loop__text">
-            <h3>Stay in the loop</h3>
-            <p>
-              Subscribe to receive the latest news and updates about TDA. We
-              promise not to spam you!
-            </p>
-          </div>
-          <div className="stay-loop__form">
-            <input type="email" placeholder="Enter your email" />
-            <button>Continue</button>
-          </div>
-        </div>
       </section>
     </div>
   );

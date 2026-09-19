@@ -1,5 +1,6 @@
 import React from "react";
 import { nanoid } from "nanoid";
+import { Link } from "react-router-dom";
 import {
   FaFacebookF,
   FaInstagram,
@@ -9,10 +10,10 @@ import {
 import "./Footer.scss";
 
 const aboutLinks = [
-  { id: nanoid(), label: "Zeux" },
-  { id: nanoid(), label: "Portfolio" },
-  { id: nanoid(), label: "Careers" },
-  { id: nanoid(), label: "Contact us" },
+  { id: nanoid(), label: "Home", path: "/" },
+  { id: nanoid(), label: "Portfolio", path: "/portfolio" },
+  { id: nanoid(), label: "News", path: "/news" },
+  { id: nanoid(), label: "Contact us", path: "/contact" },
 ];
 
 const socialLinks = [
@@ -38,9 +39,13 @@ const Footer = () => {
 
           <div className="footer_col">
             <h4>About us</h4>
-            <ul>
+            <ul className="footer-links">
               {aboutLinks.map((elm) => (
-                <li key={elm.id}>{elm.label}</li>
+                <li className="footer-item" key={elm.id}>
+                  <Link to={elm.path} className="footer-link">
+                    {elm.label}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>

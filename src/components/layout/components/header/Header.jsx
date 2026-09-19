@@ -2,9 +2,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Header.scss";
 
-// kpoxes Ani , TODO
+const NAVIGATION = [
+  { to: "/", name: "Home" },
+  { to: "/about", name: "About us" },
+  { to: "/portfolio", name: "Portfolio" },
+  { to: "/news", name: "News" },
+];
 
-const NAVIGATION = [{ to: "/", name: "Home" }];
+const getActiveClass = ({ isActive }) => (isActive ? "active" : "");
 
 const Header = () => {
   return (
@@ -13,42 +18,21 @@ const Header = () => {
         <NavLink to="/" className="logo">
           LOGO
         </NavLink>
+
         <div className="navigations">
           <ul className="header-links">
-            <li className="page-link">
-              <NavLink
-                to="/"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Home
-              </NavLink>
-            </li>
-            <li className="page-link">
-              <NavLink
-                to="/about"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                About us
-              </NavLink>
-            </li>
-            <li className="page-link">
-              <NavLink
-                to="/portfolio"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Portfolio
-              </NavLink>
-            </li>
-            <li className="page-link">
-              <NavLink
-                to="/news"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                News
-              </NavLink>
-            </li>
+            {NAVIGATION.map((item) => (
+              <li className="page-link" key={item.to}>
+                <NavLink to={item.to} className={getActiveClass}>
+                  {item.name}
+                </NavLink>
+              </li>
+            ))}
           </ul>
-          <button className="contact-btn">Contact us</button>
+
+          <NavLink to="/contact" className="contact-btn">
+            Contact us
+          </NavLink>
         </div>
       </div>
     </header>

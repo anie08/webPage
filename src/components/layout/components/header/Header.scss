@@ -14,10 +14,11 @@
 }
 
 .logo {
-  color: #fff;
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 1px;
+  text-decoration: none;
+  color: #a0a0a0;
 }
 
 .navigations {
@@ -59,6 +60,7 @@
   border-radius: 6px;
   font-weight: 600;
   font-size: 14px;
+  text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
 

@@ -6,6 +6,7 @@ import team2 from "../../assets/img/abotUs/Claudia 1.png";
 import team3 from "../../assets/img/abotUs/Beverly 1.png";
 import team4 from "../../assets/img/abotUs/Avatar 1.png";
 import showcaseImg from "../../assets/img/Rectangle 24.png";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const whyCards = [
@@ -43,7 +44,13 @@ const About = () => {
     <div className="about-page">
       <section className="about-intro container">
         <div className="about-intro__content">
-          <p className="routing">Home {">"} About us</p>
+          <div className="breadcrumb">
+            <Link to="/" className="breadcrumb-link">
+              Home
+            </Link>
+            {" > "}
+            <span className="current">News</span>
+          </div>
           <h1 className="about-intro__title">
             Lorem Ipsum is simply dummy text of the printing and.
           </h1>

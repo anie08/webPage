@@ -7,7 +7,6 @@ import {
   FaPlay,
   FaArrowLeft,
   FaArrowRight,
-  FaStar,
 } from "react-icons/fa";
 import { nanoid } from "nanoid";
 import "./Portfolio.scss";
@@ -15,6 +14,7 @@ import "./Portfolio.scss";
 import cyberpunk1Img from "../../assets/img/Rectangle 24.png";
 import cyberpunk2Img from "../../assets/img/recentProjects/Rectangle 16.png";
 import videoPreviewImg from "../../assets/img/recentProjects/Rectangle 16.png";
+import Stars from "../portfolio/stars/Stars.jsx";
 import { Link } from "react-router-dom";
 
 const contentBlocks = [
@@ -61,7 +61,7 @@ const testimonialsData = [
     id: nanoid(),
     name: "Viezh Robert",
     location: "Warsaw, Poland",
-    rating: "4.5",
+    rating: "5",
     avatar: "https://via.placeholder.com/50",
     review:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text over since the 1500s,",
@@ -70,7 +70,7 @@ const testimonialsData = [
     id: nanoid(),
     name: "Yessica Christy",
     location: "Shanxi, China",
-    rating: "4.5",
+    rating: "3",
     avatar: "https://via.placeholder.com/50",
     review: "Lorem Ipsum is simply dummy text of the printing and.",
   },
@@ -78,7 +78,7 @@ const testimonialsData = [
     id: nanoid(),
     name: "Kim Young Jou",
     location: "Seoul, South Korea",
-    rating: "4.5",
+    rating: "2.7",
     avatar: "https://via.placeholder.com/50",
     review:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
@@ -215,7 +215,7 @@ const Portfolio = () => {
                     <p>{testimonial.location}</p>
                   </div>
                   <div className="rating">
-                    {testimonial.rating} <FaStar />
+                    <Stars rating={testimonial.rating} />
                   </div>
                 </div>
                 <p className="user-review">{testimonial.review}</p>

@@ -8,13 +8,7 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import "./Footer.scss";
-
-const aboutLinks = [
-  { id: nanoid(), label: "Home", path: "/" },
-  { id: nanoid(), label: "Portfolio", path: "/portfolio" },
-  { id: nanoid(), label: "News", path: "/news" },
-  { id: nanoid(), label: "Contact us", path: "/contact" },
-];
+import { NAVIGATION } from "../../../../constants.js";
 
 const socialLinks = [
   { id: nanoid(), icon: <FaFacebookF /> },
@@ -40,7 +34,7 @@ const Footer = () => {
           <div className="footer_col">
             <h4>About us</h4>
             <ul className="footer-links">
-              {aboutLinks.map((elm) => (
+              {NAVIGATION.map((elm) => (
                 <li className="footer-item" key={elm.id}>
                   <Link to={elm.path} className="footer-link">
                     {elm.label}

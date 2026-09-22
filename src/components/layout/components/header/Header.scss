@@ -11,6 +11,15 @@
 .headerContainer {
   display: flex;
   justify-content: space-between;
+
+}
+
+.menuBtn {
+  display: none;
+  @media screen and (max-width: 800px) {
+    display: block;
+
+  }
 }
 
 .logo {
@@ -18,12 +27,25 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+
   color: #a0a0a0;
+
 }
 
 .navigations {
   display: flex;
   gap: 40px;
+  @media screen and (max-width: 800px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+
+
+  }
 }
 
 .header-links {
@@ -32,7 +54,11 @@
   gap: 35px;
   margin: 0;
   padding: 0;
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 }
+
 .header-links li a {
   text-decoration: none;
   color: #a0a0a0;
@@ -66,5 +92,76 @@
 
   &:hover {
     background-color: #d96e10;
+  }
+}
+
+.mobile-header {
+  display: none;
+  @media screen and (max-width: 800px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+  }
+}
+
+.mobile-menu__list {
+  width: 60%;
+  list-style: none;
+  gap: 35px;
+  margin: 0;
+  padding-right: 10px;
+  background-color: black;
+
+  li {
+    font-weight: bold;
+    font-size: 60px;
+  }
+
+}
+
+.mobile-menu {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.mobile-menu__close {
+  width: 40%;
+  background-color: rgb(0 0 0 / 0.56);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: #2e9e4f;
+}
+
+.mobile-menu__close-icon {
+
+
+  font-weight: bold;
+  font-size: 30px;
+  padding: 20px 0 0 20px;
+  color: white;
+}
+
+.page-link a {
+  text-decoration: none;
+  color: #a0a0a0;
+  display: inline-block;
+  padding: 10px 12px;
+  align-items: center;
+  font-size: 15px;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #fff;
+  }
+
+  &.active {
+    color: #fff;
+    border-bottom: 2px solid #f58220;
   }
 }
